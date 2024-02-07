@@ -1,0 +1,42 @@
+{
+	"configurations": [
+		{
+			"cwd": "${workspaceFolder}",
+			"executable": "${workspaceFolder}/Build/IkeaDimmer.elf",
+			"armToolchainPath": "/usr/bin/",
+			"toolchainPrefix": "arm-none-eabi",
+			"gdbPath": "gdb-multiarch",
+			"name": "Debug with JLink",
+			"request": "launch",
+			"type": "cortex-debug",
+			"runToEntryPoint": "main",
+			"showDevDebugOutput": "none",
+			"servertype": "jlink",
+			"device": "HK32F030MF4",
+			"targetId": "hk32f030mf4p6",
+			"cmsisPack": "${workspaceFolder}/Misc/HKMicroChip.HK32F030xMxx_DFP.1.0.17.pack",
+			"interface": "swd",
+			"preLaunchTask": "build, download", // Set this to run a task from tasks.json before starting a debug session
+			"svdFile": "${workspaceFolder}/Misc/SVD/HK32F030M.svd" // svd for this part number
+		},
+		{
+			"cwd": "${workspaceFolder}",
+			"executable": "${workspaceFolder}/Build/IkeaDimmer.elf",
+			"armToolchainPath": "/usr/bin/",
+			"toolchainPrefix": "arm-none-eabi",
+			"gdbPath": "gdb-multiarch",
+			"name": "Debug with PyOCD",
+			"request": "launch",
+			"type": "cortex-debug",
+			"runToEntryPoint": "main",
+			"showDevDebugOutput": "none",
+			"servertype": "pyocd",
+			"device": "HK32F030MF4",
+			"targetId": "hk32f030mf4p6",
+			"cmsisPack": "${workspaceFolder}/Misc/HKMicroChip.HK32F030xMxx_DFP.1.0.17.pack",
+			"interface": "swd",
+			"preLaunchTask": "build, download", // Set this to run a task from tasks.json before starting a debug session
+			"svdFile": "${workspaceFolder}/Misc/SVD/HK32F030M.svd" // svd for this part number
+		}
+	]
+}

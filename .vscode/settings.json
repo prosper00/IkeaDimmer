@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "hk32f030m.h": "c"
+    },
+    "editor.fontSize": 12,
+    "cmake.configureOnOpen": false
+}
