@@ -1,4 +1,3 @@
-#include "GPIO_EXTI.h"
 #include "SysTick_IRQ.h"
 #include "hk32f030m.h"
 #include <stdint.h>

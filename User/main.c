@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
   * @file       main.c
-  * @author     Brad
+  * @author     prosper
   * @version    V1.0
-  * @date       2024-xx-xx
-  * @brief      IkeaDimmer - reads value from a rotary encoder, and sets a PWM
+  * @date       2024-02-08
+  * @brief      reads value from a rotary encoder, and sets a PWM
                 output
   ******************************************************************************
   */
@@ -13,11 +13,6 @@
 #include "TIM1PWM.h"
 #include "hk32f030m.h"
 #include <stdint.h>
-
-// Global variables for ISRs
-extern volatile uint8_t encoder_btn_event;
-extern volatile int16_t encoder_direction;
-extern volatile uint32_t encoder_polled;
 
 /// @brief enc_read(void) - read and process rotary encoder inputs
 /// @param  none (reads global 'encoder_direction', updated by EXTI ISR)
@@ -40,9 +35,10 @@ int16_t enc_read(void) {
 int main(void) {
   // initialize Systick and start interrupt
   SysTick_Init();
-  SysTick_DelayMs(100); // not sure why this is necessary,
-  //  but TIM PWM polarity is unpredictable without
-  //  a delay before init. Power glitching?
+  // not sure why this is necessary,
+  // but TIM PWM polarity is unpredictable without
+  // a delay before init. Power supply glitching?
+  SysTick_DelayMs(100);
   // initialize TIM1, and start PWM output on tim1ch1
   TIM1_Config();
   // initialize exti interrupts on encoder gpio inputs
@@ -64,6 +60,7 @@ int main(void) {
   }
   TIM_SetCompare1(TIM1, brightness);
 
+  // main program loop
   while (1) {
     int32_t user_input = enc_read(); // check for activity on the encoder wheel
 
