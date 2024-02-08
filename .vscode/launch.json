@@ -1,3 +1,4 @@
+//https://github.com/Marus/cortex-debug/blob/master/debug_attributes.md
 {
 	"configurations": [
 		{
@@ -16,7 +17,7 @@
 			"targetId": "hk32f030mf4p6",
 			"cmsisPack": "${workspaceFolder}/Misc/HKMicroChip.HK32F030xMxx_DFP.1.0.17.pack",
 			"interface": "swd",
-			"preLaunchTask": "build, download", // Set this to run a task from tasks.json before starting a debug session
+			"preLaunchTask": "build", // Set this to run a task from tasks.json before starting a debug session
 			"svdFile": "${workspaceFolder}/Misc/SVD/HK32F030M.svd" // svd for this part number
 		},
 		{
@@ -25,17 +26,20 @@
 			"armToolchainPath": "/usr/bin/",
 			"toolchainPrefix": "arm-none-eabi",
 			"gdbPath": "gdb-multiarch",
+			//"debuggerArgs": "Additional arguments to pass to GDB command line",
+			//"preRestartCommands": "Additional GDB Commands to be executed at the beginning of the restart sequence (after interrupting execution).",
 			"name": "Debug with PyOCD",
 			"request": "launch",
 			"type": "cortex-debug",
 			"runToEntryPoint": "main",
 			"showDevDebugOutput": "none",
 			"servertype": "pyocd",
+			//"serverArgs": "Additional (pyocd) arguments to pass to GDB Server command line",
 			"device": "HK32F030MF4",
 			"targetId": "hk32f030mf4p6",
 			"cmsisPack": "${workspaceFolder}/Misc/HKMicroChip.HK32F030xMxx_DFP.1.0.17.pack",
 			"interface": "swd",
-			"preLaunchTask": "build, download", // Set this to run a task from tasks.json before starting a debug session
+			"preLaunchTask": "build", // Set this to run a task from tasks.json before starting a debug session
 			"svdFile": "${workspaceFolder}/Misc/SVD/HK32F030M.svd" // svd for this part number
 		}
 	]

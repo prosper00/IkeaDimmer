@@ -7,13 +7,18 @@
             "label": "clean, build",
             "type": "shell",
             "command": "make clean;make -j24",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "build, download",
             "type": "shell",
             "command": "make -j 24;make flash",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "group": "build"
         },
         {
             "label": "download",
@@ -38,6 +43,6 @@
             "type": "shell",
             "command": "make clean; bear -- make",
             "problemMatcher": []
-        },
+        }
     ]
 }
