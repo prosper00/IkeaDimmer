@@ -11,6 +11,7 @@
 #include "GPIO_EXTI.h"
 #include "SysTick_IRQ.h"
 #include "TIM1PWM.h"
+#include "flicker.h"
 #include "hk32f030m.h"
 #include <stdint.h>
 
@@ -59,6 +60,14 @@ int main(void) {
     SysTick_DelayMs(1);
   }
   TIM_SetCompare1(TIM1, brightness);
+
+  while (0) {
+    uint16_t temp = flickerV2();
+    // TIM_SetCompare1(TIM1, (temp * temp) >> 2); // expanded dynamic range
+    // TIM_SetCompare1(TIM1, (temp * 64)); // linear dynamic range
+    TIM_SetCompare1(TIM1, (temp * 8)); // linear dynamic range
+    SysTick_DelayMs(3);
+  }
 
   // main program loop
   while (1) {

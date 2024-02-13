@@ -13,7 +13,7 @@
 			"runToEntryPoint": "main",
 			"showDevDebugOutput": "none",
 			"servertype": "jlink",
-			"device": "HK32F030MF4",
+			"device": "HK32F030MF4P6",
 			"targetId": "hk32f030mf4p6",
 			"cmsisPack": "${workspaceFolder}/Misc/HKMicroChip.HK32F030xMxx_DFP.1.0.17.pack",
 			"interface": "swd",

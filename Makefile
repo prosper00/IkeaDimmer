@@ -43,7 +43,8 @@ LIB_FLAGS       = HK32F030MF4P6
 CDIRS	:= User \
 		Libraries/CMSIS/HK32F030M/Source \
 		Libraries/HK32F030M_Driver/src \
-		Libraries/Debug
+		Libraries/Debug \
+		Libraries/CandleFlickerSimulator
 # C source files (if there are any single ones)
 CFILES := 
 
@@ -57,7 +58,8 @@ INCLUDES	:= User \
 			Libraries/CMSIS/Core/Include \
 			Libraries/CMSIS/HK32F030M/Include \
 			Libraries/HK32F030M_Driver/inc \
-			Libraries/Debug
+			Libraries/Debug \
+			Libraries/CandleFlickerSimulator
 
 ifeq ($(USE_FREERTOS),y)
 CDIRS		+= Libraries/FreeRTOS \
